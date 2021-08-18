@@ -93,3 +93,51 @@ To do this you will need to open GitHub on your browser
 * Click on Personal Access Token.
 * Create a Personal Access Token.
 * Make sure you select repo and workflow as the scopes of the token.
+* Commit the changes then push them. 
+* You can now go back to GitHub in the browser and click on action, and run the action.
+
+## Create a new arm template
+
+We are going to create a new arm template for a resource group.
+
+* Create a new folder named "arm-templates"
+* In that folder create a new file named "resourcegroup.json"
+* Add the following code and save
+
+```JSON
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "Enter the location to deploy the resource to"
+            },
+            "defaultValue":"West Europe"
+        },
+        "resourceGroupName": {
+            "type": "string",
+            "metadata": {
+                "description": "Enter the name of the resource group"
+            },
+            "defaultValue":"rg-githumactions"
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "name": "[parameters('resourceGroupName')]",
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2019-10-01",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+            ],
+            "tags": {
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
