@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  subscriptionId: 4d0243f5-b1f4-4bd0-91bb-ce6481e6e810
+  subscriptionId: 26497dc1-f2e5-4f17-b4c0-10da8a9d0090
 
 jobs:
   bicepAzCliDeploy:
